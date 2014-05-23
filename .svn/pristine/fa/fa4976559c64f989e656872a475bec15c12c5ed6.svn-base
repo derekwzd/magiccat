@@ -1,0 +1,6 @@
+extends layout
+
+block content
+	div(align = center)
+		p Here Is The Most Important Part
+		img(id = "background" src="/images/Violet.jpg")

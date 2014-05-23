@@ -1,0 +1,44 @@
+body{
+  font-family :'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+  font-size : 12px;
+  line-height : 17px;
+  background-color : #d4cfd6;
+  letter-spacing : 2px;
+  text-align : center;
+  cursor : auto;
+  border-collapse : separate;
+  table-layout : fixed;
+  empty-cells : hide;
+  color : #58525c;
+  top : 50px;
+  font-style : normal;
+  padding-top : 50px;
+}
+
+a:link{color:#845437;}
+a:visited{color:#845437;}
+a:active{color:#845437;}
+a:hover{color:#58525c;}
+a{text-decoration:none;}
+
+td, table{
+  margin-left: auto;
+  margin-right: auto;
+  font-size : 12px;
+  font-family : "Meiryo","Osaka","Hiragino Kaku Gothic Pro","MS PGothic";
+  line-height : 17px;
+  letter-spacing : 2px;
+  text-align : left;
+}
+
+BR{letter-spacing:normal;}
+
+.time{
+  font-style: italic;
+  font-weight: bolder;
+}
+#todolist{
+  list-style-type: none;
+  margin-left: 30%;
+  text-align: left;
+}

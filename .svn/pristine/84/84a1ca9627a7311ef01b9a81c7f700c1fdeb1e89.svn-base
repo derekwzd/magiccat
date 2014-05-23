@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  div(align=center)
+    p Welcome To My Home
+    <!--p Welcome to #{title}-->
+    p 我简直就是聪明蛋
+    p='last update 2014.05.23'
+    ul
+      li 1.增加了img页面，即看图页面，地址为.
+        a(href="/img?img=img01" style="display:inline;color:#845437;") /img?img=img01
+      li 2.增加了test界面用于上传图片
+      li 3.修改所有文件为jade模式
+
+
+
+    div(align=center)
+      img(id = "background" src="/images/Violet.jpg")
+</div>

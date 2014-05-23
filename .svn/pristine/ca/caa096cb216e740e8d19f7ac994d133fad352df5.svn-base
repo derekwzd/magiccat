@@ -1,0 +1,192 @@
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+
+<html dir="ltr" xml:lang="en-gb" xmlns="http://www.w3.org/1999/xhtml" 
+lang="en-gb">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="经方拾遗" />
+<meta name="description" content="" />
+<title id="bookname"></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="description" content="Moleskine Notebook with jQuery Booklet" />
+<meta name="keywords" content="jquery, book, flip, pages, moleskine, booklet, plugin, css3 "/>
+<script src="<%=request.getContextPath()%>/resources/pre/js/jquery_1_8_3.js"></script>
+<script src="<%=request.getContextPath()%>/resources/pre/booklet/jquery.easing.1.3.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/resources/pre/booklet/jquery.booklet.1.1.0.min.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/resources/pre/js/ajax.js" type="text/javascript"></script>
+<link href="<%=request.getContextPath()%>/resources/pre/booklet/jquery.booklet.1.1.0.css" type="text/css" rel="stylesheet" media="screen" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/pre/css/med_book_style.css" type="text/css" media="screen"/>
+<script type="text/javascript" charset="utf-8">
+  jQuery(document).ready(function(){
+      var bkname = decodeURI(getUrlParam("bookname"));
+      jQuery("title").text(bkname);
+      jQuery("#FontTitle").text("经方拾遗之"+bkname);
+  })
+</script>
+</head>
+<body>
+<h1  style="text-align:center" class="title" id="FontTitle">经方拾遗之</h1>
+<div class="book_wrapper">
+      <a id="next_page_button"></a>
+      <a id="prev_page_button"></a>
+      <div id="loading" class="loading">载入页面中...</div>
+      <div id="mybook" style="display:none;">
+        <div class="b-load"  id="MorePage">
+          <div id ="bookcover">
+          </div>
+
+        </div>
+      </div>
+    </div>
+        
+        <!-- The JavaScript -->
+
+<script type="text/javascript">
+  var bkname = decodeURI(getUrlParam("bookname"));
+  var jsonin = {
+    "pre_book" : bkname
+  };
+  var morepage = jQuery("#MorePage");
+
+  var coverpic = "book1.jpg";
+  switch(bkname){
+    case "济阳纲目":
+      coverpic = "book9.jpg";
+      break;
+    case "医方考":
+      coverpic = "book2.jpg";
+      break;
+    case "本草纲目":
+      coverpic = "book5.jpg";
+      break;
+    case "成方切用":
+      coverpic = "book3.jpg";
+      break;
+    case "景岳全书":
+      coverpic = "book4.jpg";
+      break;
+    case "普济方":
+      coverpic = "book1.jpg";
+      break;
+    case "圣济总录":
+      coverpic = "book8.jpg";
+      break;
+    case "伤寒论":
+      coverpic = "book10.jpg";
+      break;
+  }
+  jQuery("#bookcover").append("<img src='<%=request.getContextPath()%>/resources/pre/Images/"+ coverpic +"'>");
+  jQuery.ajax({
+    url: './onebook',
+    type: 'POST',
+    data: jsonin,
+    success:function(data, status){
+      
+      /*This part designed for display**/
+      if(bkname == "济阳纲目")
+        {
+          /*for(var i in data.result_list){
+            if(data.result_list[i].name=="第二还真散"){
+              disid = i;
+              break; 
+            }
+          }*/
+          morepage.append("<div class= 'page'><h1>"+ "第二还真散" +"</h1><div class='content'><p>方剂组成："+"诃子"+"</p><p>主治内容:"+ "时疫毒痢，寒热已退，赤痢已消减者。" +"</p></div><a href='prescription?id="+ "74811" +"' target='_blank' class='article'>详细分析</a> <a href='../learning/read' target='_blank' class='article'>阅读原文</a> </div>");
+        }
+      /**End of Display Part**/
+
+      //This part is the core
+      for(var i in data.result_list){
+        morepage.append("<div class= 'page'><h1>"+ data.result_list[i].name +"</h1><div class='content'><p>方剂组成："+data.result_list[i].pre_dosage+"</p><p>主治内容:"+ data.result_list[i].pre_function +"</p></div><a href='prescription?id="+ data.result_list[i].preId +"' target='_blank' class='article'>详细分析</a> <a href='../learning/read' target='_blank' class='article'>阅读原文</a></div>");
+        }
+      }
+  })
+
+  .done(function() {
+//This part shall be done after the ajax transfer done
+jQuery(function() {
+  var $mybook = $('#mybook');
+  var $bttn_next = $('#next_page_button');
+  var $bttn_prev = $('#prev_page_button');
+  var $loading = $('#loading');
+  var $mybook_images = $mybook.find('img');
+  var cnt_images = $mybook_images.length;
+  var loaded = 0;
+  //preload all the images in the book,
+  //and then call the booklet plugin
+
+  $mybook_images.each(function() { 
+    var $img = $(this); 
+    var source = $img.attr('src');
+    $('<img/>').load(function() {
+      ++loaded;
+      if (loaded == cnt_images) {
+        $loading.hide();
+        $bttn_next.show();
+        $bttn_prev.show();
+        $mybook.show().booklet({
+          name: null, // name of the booklet to display in the document title bar
+          width: 800, // container width
+          height: 500, // container height
+          speed: 600, // speed of the transition between pages
+          direction: 'LTR', // direction of the overall content organization, default LTR, left to right, can be RTL for languages which read right to left
+          startingPage: 0, // index of the first page to be displayed
+          easing: 'easeInOutQuad', // easing method for complete transition
+          easeIn: 'easeInQuad', // easing method for first half of transition
+          easeOut: 'easeOutQuad', // easing method for second half of transition
+
+          closed: false, // start with the book "closed", will add empty pages to beginning and end of book
+          closedFrontTitle: null, // used with "closed", "menu" and "pageSelector", determines title of blank starting page
+          closedFrontChapter: null, // used with "closed", "menu" and "chapterSelector", determines chapter name of blank starting page
+          closedBackTitle: null, // used with "closed", "menu" and "pageSelector", determines chapter name of blank ending page
+          closedBackChapter: null, // used with "closed", "menu" and "chapterSelector", determines chapter name of blank ending page
+          covers: false, // used with  "closed", makes first and last pages into covers, without page numbers (if enabled)
+
+          pagePadding: 10, // padding for each page wrapper
+          pageNumbers: true, // display page numbers on each page
+
+          hovers: false, // enables preview pageturn hover animation, shows a small preview of previous or next page on hover
+          overlays: false, // enables navigation using a page sized overlay, when enabled links inside the content will not be clickable
+          tabs: false, // adds tabs along the top of the pages
+          tabWidth: 60, // set the width of the tabs
+          tabHeight: 20, // set the height of the tabs
+          arrows: false, // adds arrows overlayed over the book edges
+          cursor: 'pointer', // cursor css setting for side bar areas
+
+          hash: false, // enables navigation using a hash string, ex: #/page/1 for page 1, will affect all booklets with 'hash' enabled
+          keyboard: true, // enables navigation with arrow keys (left: previous, right: next)
+          next: $bttn_next, // selector for element to use as click trigger for next page
+          prev: $bttn_prev, // selector for element to use as click trigger for previous page
+
+          menu: null, // selector for element to use as the menu area, required for 'pageSelector'
+          pageSelector: false, // enables navigation with a dropdown menu of pages, requires 'menu'
+          chapterSelector: false, // enables navigation with a dropdown menu of chapters, determined by the "rel" attribute, requires 'menu'
+
+          shadows: true, // display shadows on page animations
+          shadowTopFwdWidth: 166, // shadow width for top forward anim
+          shadowTopBackWidth: 166, // shadow width for top back anim
+          shadowBtmWidth: 50, // shadow width for bottom shadow
+
+          before: function() {}, // callback invoked before each page turn animation
+          after: function() {} // callback invoked after each page turn animation
+        });
+        Cufon.refresh();
+      }
+    }).attr('src', source);
+  });
+});
+
+  })
+  .fail(function() {
+    console.log("error");
+  })
+  .always(function() {
+    console.log("complete");
+  });
+  
+        </script>
+    </body>
+</html>

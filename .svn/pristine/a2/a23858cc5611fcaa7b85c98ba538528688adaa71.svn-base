@@ -1,0 +1,850 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <!-- 统计信息 -->
+    <%String context_consilia = request.getContextPath();%>
+<html>
+<head>
+<!-- meta tags -->
+<meta charset="UTF-8">
+<!-- favicon -->
+<link rel="icon" href="<%=context_consilia %>/resources/assets/images/favicon.png" type="image/png">
+<!-- page title -->
+<title></title>
+
+<!-- css stylesheets -->
+<link rel="stylesheet" type="text/css" href="<%=context_consilia %>/resources/assets/newcss/nav_header.css">
+<link rel="stylesheet" type="text/css" href="<%=context_consilia %>/resources/assets/newcss/footer.css">
+<link rel="stylesheet" type="text/css" href="<%=context_consilia %>/resources/assets/newcss/page.css">
+<link rel="stylesheet" href="<%=context_consilia %>/resources/assets/css/style.css" type="text/css" media="all">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Merriweather" type="text/css" media="all">
+<link rel=stylesheet type=text/css href="<%=request.getContextPath()%>/resources/pre/js/bootstrap/css/new_bootstrap.css">
+<link rel="stylesheet" href="<%=context_consilia %>/resources/learning/css/list.css" type="text/css" media="all">
+
+<!-- js -->
+<script src="<%=request.getContextPath()%>/resources/pre/js/ajax.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/resources/pre/js/jquery_1_8_3.js"></script>
+<script type="text/javascript" src="<%=context_consilia %>/resources/assets/js/scripts.js"></script>
+<script src="<%=request.getContextPath()%>/resources//pre/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=context_consilia %>/resources/assets/plugin/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="<%=context_consilia %>/resources/assets/plugin/js/jquery.lavalamp-1.3.5.min.js"></script>
+
+<!-- The new layout part -->
+<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/resources/pre/css/new_style.css">
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/pre/js/new_d3.js"></script>
+<script src="<%=request.getContextPath()%>/resources/pre/js/urchin.js" type="text/javascript"></script>
+<script type="text/javascript">
+        _uacct = "UA-173014-2";
+        urchinTracker();
+</script>
+  <!--end of this part-->  
+</head>
+<body id="top">
+<!-- BEGIN #wrapper -->
+<div id="wrapper">
+    <ul class = "noty" id="noty">
+          <li><div class="noty_bar" style="cursor: pointer;"><div class="noty_message"><span id="noty_text"></span></div></div>
+        </li>
+    </ul>
+    <!-- BEGIN #header -->
+        <%@include file="/WEB-INF/views/common/header.jsp"%>
+    <!-- END #header -->
+
+    <!-- BEGIN #main -->
+    <div id="main" class="wrapper">
+        <div class="container clearfix">
+            <!-- BEGIN #sidebar -->
+            <div id="sidebar" class="aside">
+
+                <!-- BEGIN #navigation -->
+                <ul id="navigation">
+                    <li><a href="<%=context_consilia %>/learning/read"><span class="menu-number">01</span> 学习笔记 </a></li>
+                    <li><a href="<%=context_consilia %>/pre/bookshelf"><span class="menu-number">02</span> 经方拾遗 </a> </li>
+                    <li><a href="<%=context_consilia %>/consilia/home"><span class="menu-number">03</span> 开方帮手 </a></li>
+                </ul>
+
+                <!-- END #navigation -->
+
+                <!-- BEGIN #searchbox -->
+                <div id="searchbox">
+                    <form id="searchform" action="http://templates.granthweb.com/granth/result_not_found.html" method="get">
+                        <input id="search" name="search" type="text" value="开始查询...">
+                        <button id="searchsubmit" type="submit">查询</button>
+                    </form>
+                </div>
+                <!-- END #searchbox -->
+                <!-- BEGIN #widgets -->
+                <div id="widgets">
+                    <!-- BEGIN widget (popular posts) -->
+                    <div class="popular-posts widget-container">
+                        <div class="widget-header">
+                            <h3 class="widget-title">您可能感兴趣的经方</h3>
+                        </div>
+                        <div class="widget-content">
+                            <div class="widget-controls controls"><span class="tooltip" data-id="3"></span><a href="#" class="prev-arrow disabled">prev</a><a href="#" class="next-arrow" data-id="2">next</a></div>
+
+                            <!-- BEGIN .posts -->
+                            <ul class="posts">
+
+                                <!-- BEGIN post -->
+                                <li>
+                                    <a href="#">
+
+                                        <div class="post-title">丹砂丸</div>
+                                        <div class="post-date"> 主治中风手足不遂,言语謇涩,缓纵不仁,肢节疼痛。 </div>
+
+                                    </a>
+                                </li>
+                                <!-- END post -->
+
+                                <!-- BEGIN post -->
+                                <li>
+                                    <a href="#">
+                                        <div class="post-title">养正丹</div>
+                                        <div class="post-date"> 能去邪辅正，助阳接真。 </div>
+                                    </a>
+                                </li>
+                                <!-- END post -->
+                                <!-- BEGIN post -->
+                                <li>
+                                    <a href="#">
+                                        <div class="post-title">伏火水银硫黄紫粉丹</div>
+                                        <div class="post-date"> 一切冷气，反胃吐食，冷热血气，冷劳伤风。一切冷病。 </div>
+                                    </a>
+                                </li>
+                                <!-- END post -->
+
+                            </ul>
+                            <!-- END .posts -->
+
+                        </div>
+                    </div>
+                    <!-- END widget (popular posts) -->
+
+                    <!-- BEGIN widget (latest tweets) -->
+
+                    <!-- END widget (latest tweets) -->
+
+                </div>
+                <!-- END #widgets -->
+
+            </div>
+            <!-- END #sidebar -->
+
+            <!-- BEGIN #main-content -->
+            <div id="main-content" class="content clearfix">
+              <!-- BEGIN SERVICES page content -->            
+              <div class="inner-content" id="super_name">
+                <!-- BEGIN .one-half -->              
+                <div class="one-half">
+                  <h2 class="title outer-bordered">
+                    <span id="main_name" style="font-size:35px; color:orange;"></span>
+                  </h2>
+                  <!-- BEGIN .iconbox -->              
+                  <div class="iconbox">
+                    <div class="iconbox-icon">
+                      <img src="<%=context_consilia %>/resources/assets/images/icons/icon1.png" width="37" height="48">
+                    </div>
+                    <div class="iconbox-content">
+                      <p id="pre_dosage"></p>
+					             <p id="pre_function"></p>
+                    </div>
+                  </div>
+                  <!-- END .iconbox --> </div>
+                <!-- END .one-half -->              
+
+                <!-- BEGIN .one-half -->              
+                <div class="one-half last">
+                  <!-- BEGIN .iconbox -->              
+                  <div class="iconbox">
+                    <h3 class="title">来源书籍</h3>
+                    
+                    <div class="iconbox-icon">
+                      <img src="<%=context_consilia %>/resources/assets/images/icons/icon2.png" alt="" width="37" height="48">
+                    </div>
+                    <div class="iconbox-content">
+                      <p>
+                        此方剂在
+                        <span class="spe-num" id="BookList">&nbsp;1&nbsp;</span>
+                        本书中出现
+                      </p>
+                      <select id="BookContainMed"> 
+                      </select>
+                    </div>
+                  </div>
+                  <!-- END .iconbox --> 
+                  </div>
+                <!-- END .one-half -->
+			
+                </div>
+              <!--END .inner-content-->    
+
+              <hr class="separator">              
+              <div class="inner-content">
+                <!--Begin .one-half-->              
+                <h1 class="title outer-bordered">演化分析</h1>
+                <div class ="one-half">
+                  <!--BEGIN .iconbox-->              
+                  <div class="iconbox">
+                    <div class="iconbox-icon">
+                      <img src="<%=context_consilia %>/resources/assets/images/icons/icon7.ico" alt="" width="37" height="48">
+                    </div>
+                    <div class="iconbox-content">
+                      <h5 style="white-space:nowrap"> -增添药方 &nbsp;&nbsp;&nbsp;
+                      </h5>
+                      <span>自动筛选该方剂的拓展药剂</span>
+                      <br>
+                      <div class = "clearfix"></div>
+                      <button id="CalMedAuto"  class="submit-button" >自动计算结果</button> 
+                    </div>
+                  </div>
+                  <!--END .iconbox--> 
+
+                  <!--BEGIN .iconbox-->              
+                  <div class="iconbox">
+                    <br><br>
+                    <div class="iconbox-content">
+                        <div>手工添加药物 <input type="text" id = "AddManually" value ="" autocomplete="off"/></div><br>
+                        <button id="CalMedManu"   class="submit-button" >计算药物结果</button>	
+                    </div>
+                  </div>
+                  <!--END .iconbox--> 
+                  </div>
+                <!--END .ONE-HALF-->  
+                <!--BEGIN .one-half last-->            
+                <div class="one-half last">
+                  <div class="iconbox">
+                  <div class="iconbox-icon">
+                    <img src="<%=context_consilia %>/resources/assets/images/icons/icon7.ico" alt="" width="37" height="48">
+                  </div>
+                  <div class="iconbox-content">
+                      <h5 style="white-space:nowrap"> -删减药剂 &nbsp;&nbsp;&nbsp;
+                      <select style="width:80px;" id = "subtract">
+                      </select>
+                    </h5>
+                      <span>减少某一个药剂，筛选是否含有新药剂</span>
+                      <div><button id="calsubtract"  class="submit-button" >计算删减结果</button></div>
+                    </div>
+                  </div>
+                </div>
+                <!--END .one-half last-->
+              </div>          
+              <!--End .inner-content-->
+              <div class ="clear"></div>
+              
+              <!--BEGIN #TOSHOW_TRUE-->              
+              <div id="TOSHOW_TRUE">
+                <hr class="separator">              
+                <div class="inner-content">
+                  <div class="space-25"></div>
+                  <h1 class="title outer-bordered" id="new_med">衍生方剂</h1>
+                  <select id="NewMedList">
+                    
+                  </select>
+                  <!--BEGIN .iconbox-->              
+                  <div class="iconbox">
+                    <div class="iconbox-icon">
+                      <img src="<%=context_consilia %>/resources/assets/images/icons/icon1.png" width="37" height="48">
+                    </div>
+                    <span class = "dis">方剂名：</span>
+                    <h3 id="ResultName" style="color:orange;"></h3>
+                    <div class="iconbox-icon">
+                    <img src="<%=context_consilia %>/resources/assets/images/icons/icon1.png" width="37" height="48">
+                    </div>
+                    <span class = "dis">方剂组成：</span>
+                    <p id="composition"></p>
+                    <div class="iconbox-icon">
+                    <img src="<%=context_consilia %>/resources/assets/images/icons/icon1.png" width="37" height="48">
+                    </div>
+                    <span class="dis">功效：</span>
+                    <p id="func"></p>
+                    <p></p>
+                  </div>
+                  <!--END .iconbox--> </div>
+              </div>
+            <!--END #TOSHOW-->
+
+            <!--BEGIN #TOSHOW_FALSE-->              
+              <div id="TOSHOW_FALSE">
+                <hr class="separator">              
+                <div class="inner-content">
+                  <div class="space-25"></div>
+                  <h1 class="title outer-bordered">衍生方剂</h1>
+ 
+                  <!--BEGIN .iconbox-->              
+                  <div class="iconbox">
+                    <div class="iconbox-icon">
+                      <img src="<%=context_consilia %>/resources/assets/images/icons/icon1.png" width="37" height="48">
+                    </div>
+                    <span class = "dis">方剂名：</span>
+                    <h3  style="color:orange;">未知</h3>
+                    <div class="iconbox-icon">
+                    <img src="<%=context_consilia %>/resources/assets/images/icons/icon1.png" width="37" height="48">
+                    </div>
+                    <span class = "dis">新方剂组成：</span>
+                    <p id="COMPOSITION_FALSE"></p>
+                    <div class="iconbox-icon">
+                    <img src="<%=context_consilia %>/resources/assets/images/icons/icon1.png" width="37" height="48">
+                    </div>
+                    <span class="dis">功效：</span>
+                    <p id="func">未知</p>
+                    <p></p>
+                  </div>
+                  <!--END .iconbox--> </div>
+              </div>
+            <!--END #TOSHOW-->
+
+            <!--BEGIN #TOSHOWSUB-->              
+              <div id="TOSHOWSUB">
+                <hr class="separator">              
+                <div class="inner-content">
+                  <div class="space-25"></div>
+                  <h1 class="title outer-bordered">衍生方剂</h1>
+ 
+                  <!--BEGIN .iconbox-->              
+                  <div class="iconbox">
+                    <div class="iconbox-icon">
+                      <img src="<%=context_consilia %>/resources/assets/images/icons/icon1.png" width="37" height="48">
+                    </div>
+                    <span class = "dis">方剂名：</span>
+                    <h3  style="color:orange;" id ="MEDNAME_SUB">数据读取中..</h3>
+                    <div class="iconbox-icon">
+                    <img src="<%=context_consilia %>/resources/assets/images/icons/icon1.png" width="37" height="48">
+                    </div>
+                    <span class = "dis">新方剂组成：</span>
+                    <p id="COMPOSITION_SUB">数据读取中..</p>
+                    <div class="iconbox-icon">
+                    <img src="<%=context_consilia %>/resources/assets/images/icons/icon1.png" width="37" height="48">
+                    </div>
+                    <span class="dis">功效：</span>
+                    <p style="inner" id="FUNCTION_SUB">数据读取中..</p>
+                    <p></p>
+                  </div>
+                  <!--END .iconbox--> </div>
+              </div>
+            <!--END #TOSHOW-->
+
+
+              <div class="bg_heise" id="newbody">
+                <div class="floatTOP">
+                  <div class = "UnderSearchBarTabs2"  style="width:935px";>
+                    <div class="nytg-navBar" style="left:230px;">
+                      <ul class="nytg-navigation clearfix" style="list-style-type:none">
+                        <a href="bookshelf" id="">返回经方拾遗</a>
+                      </ul>
+                    </div>
+                  </div>
+                  <div id ="body"></div>
+                  <div id="toolTip" class="tooltip">
+                    <div id="head" class="header"></div>
+                    <div id="header1" class="header1"></div>
+                    <div id="header2" class="header2"></div>
+                    <div style="position:absolute; left:10px">
+                      <div id="federalDiv" style="width:135px; left:0px; top:10px; position: absolute;" class="selected">
+                        <div class="header3">
+                          <br>药物组成</div>
+                      </div>
+                      <div id="stateDiv" style="width:125px; left:140px; top:10px; position: absolute;">
+                        <div class="header3">
+                          <br>功效</div>
+                      </div>
+                      <div id="localDiv" style="width:125px; left:272px; top:10px; position: absolute;">
+                        <div class="header3">
+                          <br>增添药材</div>
+                      </div>
+                    </div>
+                    <div class="header-rule"></div>
+                    <div id = "DisInfo">
+                    
+                    </div>
+
+                    <div  class="tooltipTail"></div>
+
+                  </div>
+                  <div id="scroll-top2"><a href="#top"></a>返回</div>
+                </div>
+              </div>
+            <!-- END #main-content -->
+        </div>
+    </div>
+    <!-- END #main -->
+
+    <!-- BEGIN #footer -->
+    <%@include file="/WEB-INF/views/common/footer.jsp"%>
+
+    <!-- END #footer -->
+</div>
+<!-- END #wrapper -->
+<script>
+
+var diameter =900;
+var toolTip = d3.select(document.getElementById("toolTip"));
+var header = d3.select(document.getElementById("head"));
+var header1 = d3.select(document.getElementById("header1"));
+var header2 = d3.select(document.getElementById("header2"));
+var fedSpend = d3.select(document.getElementById("fedSpend"));
+var stateSpend = d3.select(document.getElementById("stateSpend"));
+var localSpend = d3.select(document.getElementById("localSpend"));
+var federalDiv=d3.select(document.getElementById("federalDiv"));
+var stateDiv=d3.select(document.getElementById("stateDiv"));
+var localDiv=d3.select(document.getElementById("localDiv"));
+var float_name=d3.select(document.getElementById("float_name"));
+var newbody = jQuery("#newbody");
+var toshowtrue = jQuery("#TOSHOW_TRUE");
+var toshowfalse = jQuery("#TOSHOW_FALSE");
+var toshowsub = jQuery("#TOSHOWSUB");
+var newmedlist = jQuery("#NewMedList");
+var disinfo = jQuery("#DisInfo");
+var composition = jQuery("#composition");
+var subtract = jQuery("#subtract");
+var func = jQuery("#func"); 
+var ResultName = jQuery("#ResultName");
+var main_name = jQuery("#main_name");
+var bookcontainmed = jQuery("#BookContainMed");
+var compositionfalse =  jQuery("#COMPOSITION_FALSE");
+var noty = jQuery("#noty");
+var iftoshow=0;
+var booklist = jQuery("#BookList"); 
+var bkname = decodeURI(getUrlParam("id"));
+var jsonin = {
+  "pre_med" : bkname
+};
+var dosagelist;
+var addmanually = document.getElementById("AddManually")
+var mainname;
+jQuery.ajax({
+  url: './onemed',
+  type: 'POST',
+  data: jsonin,
+  success:function(data, status){
+    jQuery("title").html(data.result_info[0].name);
+    jQuery("#main_name").html(data.result_info[0].name);
+    jQuery("#pre_dosage").html(data.result_info[0].pre_dosage);
+    jQuery("#pre_function").html("主治：" + data.result_info[0].pre_function);
+    mainname = data.result_info[0].name;
+   }
+})
+.done(function() {
+
+  /*Subtract Part*/
+  var jsonin = {
+    "pre_med" : bkname
+  };
+
+  jQuery.ajax({
+    url: './onemedsim',
+    type: 'POST',
+    data: jsonin,
+    success:function(data, status){
+      subtract.append("<option value = '#'></option>");
+      dosagelist = data.result_info[0].dosage.split(" ");
+      for(var i=0; i<dosagelist.length-1; i++)
+        subtract.append("<option value = "+ i + " >"+dosagelist[i]+"</option>");
+    }
+  });
+  /*End of Subtract*/
+
+  var FindBookNameByMedName = {
+    "pre_med_name": mainname
+  };
+
+  jQuery.ajax({
+    url: './BookContainMed',
+    type: 'POST',
+    data: FindBookNameByMedName,
+    success: function(data, status) {
+      booklist.html(" "+ data.med_books.length +" ");
+      for(var i in data.med_books){
+        bookcontainmed.append("<option value='#'>"+data.med_books[i].pre_book+"</option>");
+      }
+    }
+  })
+  .done(function() {
+    console.log("success");
+  });
+
+})
+.fail(function() {
+  console.log("error");
+})
+.always(function() {
+  console.log("complete");
+});
+
+
+
+newbody.hide();
+toshowtrue.hide();
+toshowfalse.hide();
+toshowsub.hide();
+noty.hide();
+var tree = d3.layout.tree()
+    .size([360, diameter / 2 - 120])
+    .separation(function(a, b) { return (a.parent == b.parent ? 1 : 2) / a.depth; });
+
+var diagonal = d3.svg.diagonal.radial()
+    .projection(function(d) { return [d.y, d.x / 180 * Math.PI]; });
+
+var svg = d3.select("#body").append("svg")
+    .attr("width", diameter)
+    .attr("height", diameter)
+    .append("g")
+    .attr("transform", "translate(" + diameter / 2  + "," + diameter / 2 + ")");
+
+
+var add_med = jQuery("#add_med");
+var acJson="65708.json";
+var preJson="<%=request.getContextPath()%>/resources/pre/Data_In_Json/";
+var resJson=preJson + acJson;
+acJson = bkname + ".json";
+  resJson = preJson + acJson;
+
+
+jQuery("#CalMedAuto").click(function(event) {
+  addmanually.value="";
+  changeD3();
+});
+
+//Change the svg and the list
+function changeD3(){
+  Erasing();
+  var link = svg.selectAll(".link").remove();
+  var node = svg.selectAll(".node").remove();
+  d3.json(resJson, function(error, root) {
+    if (root && root.children.length != 1) { /*Determine weather has the json*/
+    //if (root) { /*Determine weather has the json*/
+      
+      //Create the nessary DOM tree
+      jQuery("#TOSHOW_TRUE").fadeIn('slow', function() {});
+      jQuery("#newbody").fadeIn('slow', function() {});
+
+      //This part change the newmedlist
+      var temp, listcontent;
+      newmedlist.html("");
+      for (var i = 0; i < root.children.length; i++) {
+        temp = root.children[i].name;
+        listcontent += "<option value='" + i + "'>" + root.children[i].name + "</option>";
+      }
+      newmedlist.html(listcontent);
+      ResultName.html(root.children[0].name);
+      composition.html(root.children[0].composition);
+      func.html(root.children[0].function);
+      newmedlist.change(function(event) {
+        var tempnum = this.value;
+        ResultName.html(root.children[tempnum].name);
+        composition.html(root.children[tempnum].composition);
+        func.html(root.children[tempnum].function);
+      });
+
+      //This part build the svg 
+      var nodes = tree.nodes(root),
+        links = tree.links(nodes);
+
+      float_name.html("返回：" + root.name);
+      var link = svg.selectAll(".link")
+        .data(links)
+        .enter().append("path")
+        .attr("class", "link")
+        .attr("d", diagonal);
+
+      var node = svg.selectAll(".node")
+        .data(nodes)
+        .enter().append("g")
+        .attr("class", "node")
+        .attr("transform", function(d) {
+          return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")";
+        })
+        .on("mouseover", function(d) {
+          node_onMouseOver(d);
+        })
+        .on("mouseout", function(d) {
+          node_onMouseOut();
+        })
+        .on("click", function(d) {});
+
+      node.append("circle")
+        .attr("r", 4.5);
+
+      node.append("text")
+        .attr("dy", ".31em")
+        .attr("text-anchor", function(d) {
+          return d.x < 180 ? "start" : "end";
+        })
+        .attr("transform", function(d) {
+          return d.x < 180 ? "translate(8)" : "rotate(180)translate(-8)";
+        })
+        .text(function(d) {
+          return d.name;
+        });
+      setTimeout("jQuery('html, body').animate({scrollTop: jQuery('#new_med').offset().top}, 1500); ", 1000);
+      d3.select(self.frameElement).style("height", diameter - 150 + "px");
+    }
+
+    else { // if they don't have the json
+      notification("计算无结果");
+      d3.select(self.frameElement).style("height", diameter - 150 + "px");
+    }
+  }); /*End d3.json function*/
+    
+}
+
+jQuery("#CalMedManu").click(function(event) {
+  Erasing();
+  if(addmanually.value==""){//if no input, display the auto changeD3();
+    changeD3();
+  }
+  else {
+    changeD3_manu(addmanually.value);
+  }
+});
+
+function changeD3_manu(addManuMed){
+  Erasing();
+  var link = svg.selectAll(".link").remove();
+  var node = svg.selectAll(".node").remove();
+  d3.json(resJson, function(error, root) {  
+      /*Determine if addManuMed is in the list*/
+      var flag = false;
+      var flagnum = 10000;
+      for(var i = 0; i < root.children.length; i++){
+        if (addManuMed == root.children[i].parentDiff){
+          flag = true;
+          flagnum = i;
+          break;
+        }
+      }
+
+      if (flag==false){
+        toshowfalse.fadeIn('3000', function() {});
+        compositionfalse.html("");
+        compositionfalse.append("<span style='color:orange;'>" + addmanually.value + "</span> + ");
+        for (var i in dosagelist)
+          compositionfalse.append(dosagelist[i] + " ");
+        setTimeout("jQuery('html, body').animate({scrollTop: jQuery('#TOSHOW_FALSE').offset().top}, 1500); ", 1000);
+      }
+        
+      else{
+        //Create the nessary DOM tree
+        jQuery("#TOSHOW_TRUE").fadeIn('slow', function() {});
+        jQuery("#newbody").fadeIn('slow', function() {});
+    
+        //This part change the newmedlist
+        var temp, listcontent;
+        newmedlist.html("");
+        for (var i = 0; i < root.children.length; i++) {
+          temp = root.children[i].name;
+          if(i!=flagnum)
+            listcontent += "<option value='" + i + "'>" + root.children[i].name + "</option>";
+          else
+            listcontent += "<option value='" + i + "' selected = 'selected'>" + root.children[i].name + "</option>";
+          
+        }
+        newmedlist.html(listcontent); 
+        ResultName.html(root.children[flagnum].name);
+        composition.html(root.children[flagnum].composition);
+        func.html(root.children[flagnum].function);
+        newmedlist.change(function(event) {
+          var tempnum = this.value;
+          ResultName.html(root.children[tempnum].name);
+          composition.html(root.children[tempnum].composition);
+          func.html(root.children[tempnum].function);
+        });
+
+        //This part build the svg 
+        var nodes = tree.nodes(root),
+          links = tree.links(nodes);
+
+        float_name.html("返回：" + root.name);
+        var link = svg.selectAll(".link")
+          .data(links)
+          .enter().append("path")
+          .attr("class", "link")
+          .attr("d", diagonal);
+
+        var node = svg.selectAll(".node")
+          .data(nodes)
+          .enter().append("g")
+          .attr("class", "node")
+          .attr("transform", function(d) {
+            return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")";
+          })
+          .on("mouseover", function(d) {
+            node_onMouseOver(d);
+          })
+          .on("mouseout", function(d) {
+            node_onMouseOut();
+          })
+          .on("click", function(d) {});
+
+        node.append("circle")
+          .attr("r", 4.5);
+
+        node.append("text")
+          .attr("dy", ".31em")
+          .attr("text-anchor", function(d) {
+            return d.x < 180 ? "start" : "end";
+          })
+          .attr("transform", function(d) {
+            return d.x < 180 ? "translate(8)" : "rotate(180)translate(-8)";
+          })
+          .text(function(d) {
+            return d.name;
+          });
+        setTimeout("jQuery('html, body').animate({scrollTop: jQuery('#new_med').offset().top}, 1500); ", 1000);
+        d3.select(self.frameElement).style("height", diameter - 150 + "px");
+        }
+      }); /*End d3.json function*/
+    
+}
+
+jQuery("#calsubtract").click(function(event) {
+  Erasing();
+  var subvalue = document.getElementById("subtract").value;
+  if (subvalue == "#") {
+    notification("请选择一味要删减的药剂");
+  }else{
+    var string="";
+    jQuery("#TOSHOWSUB").fadeIn('3000', function() {});
+    jQuery("#MEDNAME_SUB").html("数据读取中...");
+    jQuery("#COMPOSITION_SUB").html("数据读取中...");
+    jQuery("#FUNCTION_SUB").html("数据读取中...");
+    for(var i=0; i<dosagelist.length-1; i++){
+      if(i!=subvalue)
+        string  = string + dosagelist[i] + " ";
+    }
+    setTimeout("jQuery('html, body').animate({scrollTop: jQuery('#TOSHOWSUB').offset().top}, 1500); ", 500);
+    var jsonin = {
+      "pre_med_dosage": string
+    };
+    jQuery.ajax({
+      url: './GetMedByDosage',
+      type: 'POST',
+      data: jsonin,
+      success: function(data, status) {
+
+        if (data.result.length>0){
+          jQuery("#MEDNAME_SUB").html(data.result[0].pre_name_zh);
+          jQuery("#COMPOSITION_SUB").html(data.result[0].pre_dosage);
+          jQuery("#FUNCTION_SUB").html(data.result[0].pre_function);
+        }
+        else{
+          jQuery("#MEDNAME_SUB").html("未知");
+          jQuery("#COMPOSITION_SUB").html(string);
+          jQuery("#FUNCTION_SUB").html("未知");
+        }
+        
+      }
+    })
+    .done(function() {
+
+    });
+  }
+});
+
+
+function notification(message){
+  jQuery("#noty_text").text(message);
+  noty.fadeIn('normal', function() {
+    setTimeout("noty.fadeOut('slow')",1000);
+  });
+}
+
+
+
+function toggleAll(d) {
+      if (d.children) {
+        d.children.forEach(toggleAll);
+        toggle(d);
+      }
+    }
+
+//Erasing
+function Erasing(){
+  newbody.hide("slow");
+  toshowtrue.hide("slow");
+  toshowfalse.hide("slow");
+  toshowsub.hide("slow");
+}
+
+function toggle(d) {
+  if (d.children) {
+    d._children = d.children;
+    d.children = null;
+  } else {
+    d.children = d._children;
+    d._children = null;
+  }
+}
+
+function node_onMouseOver(d) {
+  iftoshow = 1;
+  toolTip.transition()
+    .duration(800)
+    .style("opacity", ".9");
+    var query = "<p style='display:inline'>"+ d['parentName'] +" -> </p><a href=\"http://www.cadal.zju.edu.cn/tcm/search/pre?prename="+d['name']+"\" target='_blank'>"+ d['name'] +"</a>";
+  header.html(query);
+  header1.text((d.depth > 1) ? d["source_Level2"] : "");
+  header2.html((d.depth > 2) ? d["source_Level3"] : "");
+  if (d.depth > 3) {
+    //header2.html(header2.html() + " - "  + d["source_Level4"]);
+  }
+  disinfo.text(d['composition']);
+  federalDiv.attr("class", "selected");
+  stateDiv.attr("class", "none");
+  localDiv.attr("class", "none");
+
+  //for fun
+  jQuery("#federalDiv").click(function(event) {
+    disinfo.text(d['composition']);
+    federalDiv.attr("class", "selected");
+    stateDiv.attr("class", "none");
+    localDiv.attr("class", "none");
+  });
+  jQuery("#stateDiv").click(function(event) {
+    disinfo.text(d['function']);
+    federalDiv.attr("class", "none");
+    stateDiv.attr("class", "selected");
+    localDiv.attr("class", "none");
+  });
+  jQuery("#localDiv").click(function(event) {
+    disinfo.text(d['parentDiff']);
+    federalDiv.attr("class", "none");
+    stateDiv.attr("class", "none");
+    localDiv.attr("class", "selected");
+  });
+
+  var e = event || window.event;              
+
+  if((document.documentElement.clientWidth-e.clientX)>=450){
+    toolTip.style("left", (d3.event.pageX - 95) + "px")
+      .style("top", (d3.event.pageY - 200) + "px");
+  }
+  else{
+    toolTip.style("left", (d3.event.pageX - 550) + "px")
+      .style("top", (d3.event.pageY - 200) + "px");
+  }
+}
+
+function node_onMouseOut(){
+  iftoshow=0;
+  setTimeout("if(iftoshow==0)toolTip.transition().duration(1000).style('opacity','0');", 800);
+}
+
+
+//This part control the tooltip's mouseover and out
+toolTip.on('mouseover', function(event) {
+  if(jQuery("#toolTip").css('opacity')!=0)
+    iftoshow=1;
+});
+toolTip.on('mouseout', function(event) {
+  if(jQuery("#toolTip").css('opacity')!=0){
+    node_onMouseOut();}});
+
+</script>
+
+<script type="text/javascript">
+jQuery('#navigation').children().eq(0).removeClass('selectedLava');
+jQuery('#navigation').children().eq(1).addClass('selectedLava');
+</script>
+
+</body>
+</html>

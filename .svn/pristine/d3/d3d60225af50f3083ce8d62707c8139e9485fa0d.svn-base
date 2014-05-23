@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  <!--h1= title-->
+  <div align=center><img id="title" src="/images/1.png">
+  <!--<h1>MagicCat</h1>-->
+  <div><a href="http://magiccat.duapp.com">http://magiccat.duapp.com</a></div>
+  <br>
+  <a href="/about" class = "list">aboout</a> &nbsp;| &nbsp;
+  <a href="/gallary">gallary</a> &nbsp;| &nbsp;
+  <a href="#">memo</a> &nbsp;| &nbsp;
+  <a href="#">offline</a>
+  p Here Is The Most Important Part
+</div>

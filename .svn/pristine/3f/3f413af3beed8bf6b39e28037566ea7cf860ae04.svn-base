@@ -1,0 +1,19 @@
+extends layout
+
+block content 
+	script.
+		$("body").hide();
+		
+
+	//BEGIN main_content PART
+	div#main_content(align="center")
+	//END main_content PART
+
+
+	script(type='text/javascript').
+		var query = "/images/"+ "#{img}" + ".jpg";
+		$("#main_content").append("<img src='"+ query +"'></img>");
+		/**$("body").css({"background":"yellow"});**/
+		$("body").show();
+		
+		

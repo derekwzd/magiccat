@@ -1,0 +1,324 @@
+<html>
+<head>
+<!-- meta tags -->
+<meta charset="UTF-8">
+
+
+<!-- favicon -->
+<link rel="icon" href="<%=context_consilia %>/resources/assets/images/favicon.png" type="image/png">
+
+<!-- page title -->
+<title>经方拾遗</title>
+
+<!-- css stylesheets -->
+<link rel="stylesheet" type="text/css" href="<%=context_consilia %>/resources/assets/newcss/nav_header.css">
+<link rel="stylesheet" type="text/css" href="<%=context_consilia %>/resources/assets/newcss/footer.css">
+<link rel="stylesheet" type="text/css" href="<%=context_consilia %>/resources/assets/newcss/page.css">
+<link rel="stylesheet" href="<%=context_consilia %>/resources/assets/css/style.css" type="text/css" media="all">
+<link rel="stylesheet" href="<%=context_consilia %>/resources/learning/css/list.css" type="text/css" media="all">
+<link rel="stylesheet" type="text/css" href="<%=context_consilia %>/resources/pre/css/bookshelf.css">
+<link rel="stylesheet" type="text/css" href="">
+<!--Search part css-->
+<link href="<%=context_consilia %>/resources/pre/css/charisma-app.css" rel="stylesheet">
+<link href="<%=context_consilia %>/resources/pre/css/bootstrap-cerulean.css" rel="stylesheet">
+
+<!-- js -->
+<script type="text/javascript" src="<%=context_consilia %>/resources/pre/js/jquery_1_8_3.js"></script>
+<script type="text/javascript" src="<%=context_consilia %>/resources/assets/js/scripts.js"></script>
+<script src="<%=request.getContextPath()%>/resources/pre/js/all.js"></script>
+<script src="<%=request.getContextPath()%>/resources/pre/js/turn.min.4.js"></script>
+<script src="<%=request.getContextPath()%>/resources/pre/js/zoom.min.js"></script>
+<script type="text/javascript" src="<%=context_consilia %>/resources/assets/plugin/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="<%=context_consilia %>/resources/assets/plugin/js/jquery.lavalamp-1.3.5.min.js"></script>
+
+<!--the new book shelf-->
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/pre/css/sti_style.css" type="text/css" media="screen"> 
+<!--<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/pre/css/mediaelementplayer.css">-->
+<script src="<%=request.getContextPath()%>/resources/pre/js/jquery.touchSwipe.min.js"></script> 
+<script src="<%=request.getContextPath()%>/resources/pre/js/jquery.versatileTouchSlider.min.js"></script> 
+<!--<script src="<%=request.getContextPath()%>/resources/pre/js/mediaelement-and-player.min.js"></script>-->
+<script src="<%=request.getContextPath()%>/resources/pre/js/innerbookshelf.js"></script>
+<!--end of this part-->
+<script src="<%=request.getContextPath()%>/resources/pre/js/jquery.dataTables.min.js"></script>
+<script src="<%=request.getContextPath()%>/resources/pre/js/WuDong.js"></script>
+</head>
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+    $.versatileTouchSlider('#ex_shelf_full', {
+            slideWidth: 960, // some number. ex: 960 or '100%'
+            slideHeight: 'auto', // some number. ex: 220 or 'auto'
+            showPreviousNext: true,
+            currentSlide: 0,
+            scrollSpeed: 600,
+            autoSlide: false,
+            autoSlideDelay: 3000,
+            showPlayPause: true,
+            showPagination: true,
+            alignPagination: 'left',
+            alignMenu: 'left',
+            swipeDrag: true,
+            sliderType: 'image_shelf', // image_shelf, image_banner, image_text, image_gallery
+            pageStyle: 'numbers', // numbers, bullets, thumbnails
+            orientation: 'horizontal', // horizontal, vertical (if vertical, the "slideHeight" option must be a number, not 'auto')
+            onScrollEvent: function() {},
+            ajaxEvent: function() {
+            }
+        }
+    );
+    
+});
+</script>
+
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+
+</script>
+<body>
+<!-- BEGIN #wrapper -->
+
+        <ul class = "noty" id="noty">
+      <li><div class="noty_bar" style="cursor: pointer;"><div class="noty_message"><span id="noty_text"></span></div></div>
+    </li>
+</ul>
+
+<div id="wrapper">
+    <!-- BEGIN #header -->
+    <%@include file="/WEB-INF/views/common/header.jsp"%>
+    <!-- END #header -->
+    <!-- BEGIN #main -->
+    <div id="main" class="wrapper">
+        <div class="container clearfix">
+
+            <!-- BEGIN #sidebar -->
+            <div id="sidebar" class="aside">
+                <!-- BEGIN #navigation -->
+                <ul id="navigation">
+                    <li>
+                        <a href="<%=context_consilia %>
+                            /learning/read">
+                            <span class="menu-number">01</span>
+                            学习笔记
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<%=context_consilia %>
+                            /pre/bookshelf">
+                            <span class="menu-number">02</span>
+                            经方拾遗
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<%=context_consilia %>
+                            /consilia/home">
+                            <span class="menu-number">03</span>
+                            开方帮手
+                        </a>
+                    </li>
+                </ul>
+                <!-- END #navigation -->
+                <!-- BEGIN #searchbox -->
+                <div id="searchbox">
+                    <form id="searchform" action="http://templates.granthweb.com/granth/result_not_found.html" method="get">
+                        <input id="search" name="search" type="text" value="开始查询...">
+                        <button id="searchsubmit" type="submit">查询</button>
+                    </form>
+                </div>
+                <!-- END #searchbox -->
+
+                <!-- BEGIN #widgets -->
+                <div id="widgets">
+                    <!-- BEGIN widget (popular posts) -->
+                    <div class="popular-posts widget-container">
+                        <div class="widget-header">
+                            <h3 class="widget-title">您可能感兴趣的经方</h3>
+                        </div>
+                        <div class="widget-content">
+                            <div class="widget-controls controls">
+                                <span class="tooltip" data-id="3"></span>
+                                <a href="#" class="prev-arrow disabled">prev</a>
+                                <a href="#" class="next-arrow" data-id="2">next</a>
+                            </div>
+
+                            <!-- BEGIN .posts -->
+                            <ul class="posts">
+
+                                <!-- BEGIN post -->
+                                <li>
+                                    <a href="#">
+                                        <div class="post-title">丹砂丸</div>
+                                        <div class="post-date">主治中风手足不遂,言语謇涩,缓纵不仁,肢节疼痛。</div>
+                                    </a>
+                                </li>
+                                <!-- END post -->
+
+                                <!-- BEGIN post -->
+                                <li>
+                                    <a href="#">
+                                        <div class="post-title">养正丹</div>
+                                        <div class="post-date">能去邪辅正，助阳接真。</div>
+                                    </a>
+                                </li>
+                                <!-- END post -->
+
+                                <!-- BEGIN post -->
+                                <li>
+                                    <a href="#">
+                                        <div class="post-title">伏火水银硫黄紫粉丹</div>
+                                        <div class="post-date">一切冷气，反胃吐食，冷热血气，冷劳伤风。一切冷病。</div>
+                                    </a>
+                                </li>
+                                <!-- END post --> </ul>
+                            <!-- END .posts --> </div>
+                    </div>
+                    <!-- END widget (popular posts) -->
+                    <!-- BEGIN widget (latest tweets) -->
+                    <!-- END widget (latest tweets) --> </div>
+                <!-- END #widgets --> </div>
+            <!-- END #sidebar -->
+
+            <!-- BEGIN #main-content -->
+            <div id="main-content" class="content clearfix">
+                <div class="sti_container" id="ex_shelf_full" style="margin-top:50px;">
+                    <div class="sti_slider">
+                        <div class="sti_items">
+                            <!-- SLIDE GROUP 1 -->
+                            <div class="sti_slide">
+                                <div class="sti_shelf_divider"></div>
+                                <div class="sti_prod">
+                                    <img src="<%=request.getContextPath()%>/resources/pre/Images/book9.jpg" alt="" width="110" height="150">
+                                    <a href="med_book?bookname=济阳纲目" class="link content sti_lightbox"  data-type="html-content" data-size="1010x800" title=""></a>
+                                </div>
+                                <div class="sti_prod">
+                                    <img src="<%=request.getContextPath()%>/resources/pre/Images/book2.jpg" alt="" width="110" height="150">
+                                    <a href="med_book?bookname=医方考" class="link content sti_lightbox"  data-type="html-content" data-size="1010x800" title=""></a>
+                                </div>
+                                <div class="sti_prod">
+                                    <img src="<%=request.getContextPath()%>/resources/pre/Images/book5.jpg" alt="" width="110" height="150">
+                                    <a href="med_book?bookname=本草纲目" class="link video sti_lightbox" data-type="html-content" data-size="1010x800" title="Vimeo Video"></a>
+                                </div>
+                                <div class="sti_prod">
+                                    <img src="<%=request.getContextPath()%>/resources/pre/Images/book3.jpg" alt="" width="110" height="150">
+                                    <a href="med_book?bookname=成方切用" class="link audio sti_lightbox"  data-type="html-content" data-size="1010x800" title="Audio Example. HTML5 Support / Flash Fallback"></a>
+                                    <a href="#" class="ribbon ribbon_green" title=""></a>
+                                </div>
+                                <div class="sti_prod">
+                                    <img src="<%=request.getContextPath()%>/resources/pre/Images/book4.jpg" alt="" width="110" height="150">
+                                    <a href="med_book?bookname=景岳全书" class="link video sti_lightbox" data-type="html-content" data-size="1010x800" title=""></a>
+                                    <a href="#" class="ribbon ribbon_orange" title=""></a>
+                                </div>
+
+                                <div class="sti_prod">
+                                    <img src="<%=request.getContextPath()%>/resources/pre/Images/book10.jpg" alt="" width="110" height="150">
+                                    <a href="med_book?bookname=伤寒论" class="link zoom sti_lightbox" data-size="1010x800" data-type="html-content" title=""></a>
+                                </div>
+                                <div class="sti_shelf_divider_bottom"></div>
+                            </div>
+
+                            <!-- SLIDE GROUP 2 -->
+                            <div class="sti_slide">
+                                <div class="sti_shelf_divider"></div>
+                                <div class="sti_prod">
+                                    <img src="<%=request.getContextPath()%>/resources/pre/Images/book9.jpg" alt="" width="110" height="150">
+                                    <a href="med_book?bookname=济阳纲目" class="link content sti_lightbox"  data-type="html-content" data-size="1010x800" title=""></a>
+                                </div>
+                                <div class="sti_prod">
+                                    <img src="<%=request.getContextPath()%>/resources/pre/Images/book2.jpg" alt="" width="110" height="150">
+                                    <a href="med_book?bookname=医方考" class="link content sti_lightbox"  data-type="html-content" data-size="1010x800" title=""></a>
+                                </div>
+                                <div class="sti_prod">
+                                    <img src="<%=request.getContextPath()%>/resources/pre/Images/book5.jpg" alt="" width="110" height="150">
+                                    <a href="med_book?bookname=本草纲目" class="link video sti_lightbox" data-type="html-content" data-size="1010x800" title="Vimeo Video"></a>
+                                </div>
+                                <div class="sti_prod">
+                                    <img src="<%=request.getContextPath()%>/resources/pre/Images/book3.jpg" alt="" width="110" height="150">
+                                    <a href="med_book?bookname=成方切用" class="link audio sti_lightbox"  data-type="html-content" data-size="1010x800" title="Audio Example. HTML5 Support / Flash Fallback"></a>
+                                    <a href="#" class="ribbon ribbon_green" title=""></a>
+                                </div>
+                                <div class="sti_prod">
+                                    <img src="<%=request.getContextPath()%>/resources/pre/Images/book4.jpg" alt="" width="110" height="150">
+                                    <a href="med_book?bookname=景岳全书" class="link video sti_lightbox" data-type="html-content" data-size="1010x800" title=""></a>
+                                    <a href="#" class="ribbon ribbon_orange" title=""></a>
+                                </div>
+
+                                <div class="sti_prod">
+                                    <img src="<%=request.getContextPath()%>/resources/pre/Images/book10.jpg" alt="" width="110" height="150">
+                                    <a href="med_book?bookname=伤寒论" class="link zoom sti_lightbox" data-size="1010x800" data-type="html-content" title=""></a>
+                                </div>
+                                <div class="sti_prod">
+                                    <img src="<%=request.getContextPath()%>/resources/pre/Images/book8.jpg" alt="" width="110" height="150">
+                                    <a href="med_book?bookname=圣济总录" class="link audio sti_lightbox"  data-type="html-content" data-size="1010x800" title=""></a>
+                                </div>
+
+                                <div class="sti_shelf_divider_bottom"></div>
+                            </div>
+                        </div>
+                        <!-- sti_items --> </div>
+                    <!-- sti_slider -->
+                    <div class="sti_paginate">
+                        <div class="sti_page"></div>
+                        <div class="sti_control">
+                            <a href="#" class="sti_btn sti_play">
+                                <img src="<%=request.getContextPath()%>/resources/pre/img/play.png" alt=""></a>
+                            <a href="#" class="sti_btn sti_pause">
+                                <img src="<%=request.getContextPath()%>/resources/pre/img/pause.png" alt=""></a>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- sti_container -->
+
+                <!--BEGIN SEARCH BAR-->
+                <div id ="search-med">
+                    <input value="可输入对应信息" id ="search-ipt" autocomplete="off">
+                    <button class = "btn" id="search-btn" >查询方剂</button>
+                </div>
+                <!--END SEARCH BAR-->                
+                
+                <!--BEGIN SEARCH RESULT-->
+                <div>
+                    <div class="box">
+                        <div class="box-content">
+                            <table class="table table-striped table-bordered bootstrap-datatable datatable">
+                                <thead>
+                                    <tr>
+                                        <th>方剂全名</th>
+                                        <th>方剂组成</th>
+                                        <th>方剂功效</th>
+                                        <th>所在书籍</th>
+                                        <th>详细内容</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="search-result"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--/span--> 
+                </div>
+                <!--/row--> 
+            </div>
+            <!-- END #main-content --> 
+        </div>
+        <!--END .container clearfix-->
+    </div>
+    <!-- END #main -->
+
+    <!-- BEGIN #footer -->
+    <%@include file="/WEB-INF/views/common/footer.jsp"%>
+    <!-- END #footer -->
+
+</div>
+<!-- END #wrapper -->
+
+<script type="text/javascript">
+    initialize();
+    docReady();
+    /*The left part*/
+    jQuery('#navigation').children().eq(0).removeClass('selectedLava');
+    jQuery('#navigation').children().eq(1).addClass('selectedLava');
+
+</script>
+</body>
+</html>

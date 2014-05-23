@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  div(align=center)
+    h3 工作汇报中心
+    p='last update 2014.05.23'
+    ul#todolist
+      li.time 2014.5.23.凌晨
+      li 1.增加了test页面，并完成上传功能  
+      li.time 2014.5.23.下午
+      li 1.增加了img页面，即看图页面，地址为.
+        a(href="/img?img=img01" style="display:inline;color:#845437;") /img?img=img01
+      li 2.增加了test界面用于上传图片
+      li 3.修改所有文件为jade模式
+      li 4.增加所有需要的内容
+      <br>
+
+      li.time 2014.5.22 前
+      li 1.增加所有页面 增加部分逻辑内容
+
+    div(align=center)
+      img(id = "background" src="/images/Violet.jpg")
+</div>

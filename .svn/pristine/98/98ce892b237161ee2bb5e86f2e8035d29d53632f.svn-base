@@ -1,0 +1,8 @@
+extends layout
+script src="/javascripts/jquery_1_8_3.js"
+include layout.html
+block content
+    p test page
+    form(action="/uploadImg" method="post" id="upload" enctype="multipart/form-data")  
+        <input type="file" name="uploadImg"/>  
+        <input type="submit" value="upload"/>

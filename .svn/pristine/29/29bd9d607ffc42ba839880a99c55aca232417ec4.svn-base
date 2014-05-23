@@ -1,0 +1,39 @@
+/* GET home page. */
+exports.index = function(req, res){
+  res.render('index', { title: 'Express' });
+};
+
+exports.about = function(req, res){
+	res.render('about', {title: "Express"});
+}
+
+exports.gallary = function(req, res){
+	res.render('gallary');
+}
+
+exports.test = function(req,res){
+	res.render('test');
+}
+
+exports.upload = function(req, res){
+	 if (req.files && req.files.codecsv != 'undifined') {  
+        var temp_path = req.files.codecsv.path;  
+        if (temp_path) {  
+            fs.readFile(temp_path, 'utf-8', function(err, content) {  
+                //文件的内容  
+                console.log('content',content);  
+                // 删除临时文件  
+                fs.unlink(temp_path);  
+            });  
+        }
+    }
+}
+
+
+exports.img = function(req, res){
+    res.render('img', {img: req.query.img});
+}
+
+exports.todo = function(req, res){
+    res.render('todo');
+}

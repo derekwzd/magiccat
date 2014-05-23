@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  div(align=center)
+    p Self-instruction
+    p 这里是自我介绍部分,暂时就先放一张图吧
+ 
+    <div align=center><img id = "background" src="/images/Violet.jpg"></div>

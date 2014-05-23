@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  <!--h1= title-->
+  <div align=center >
+  <h1>MagicCat</h1>
+  <a href="http://magiccat.duapp.com">http://magiccat.duapp.com</a>
+  p Welcome to my home
+  <!--p Welcome to #{title}-->
+  p 我简直就是聪明蛋
+  </div>
+  <div align=center><img id = "background" src="/images/Violet.jpg"></div>

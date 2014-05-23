@@ -1,0 +1,9 @@
+doctype html
+html
+  head
+    <!--title= title-->
+    title MagicCat
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    <link rel="icon" href="/images/favicon2.ico" type="image/ico">
+  body
+    block content

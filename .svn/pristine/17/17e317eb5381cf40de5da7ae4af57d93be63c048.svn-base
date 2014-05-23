@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    <!--title= title-->
+    title MagicCat
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="icon" href="/images/favicon2.ico" type="image/ico")
+    script(src="/javascripts/jquery_1_8_3.js")
+
+  body
+  div(align = center)
+    a(href="/")
+    img(id="title" src="/images/3.png")
+    <div><a href="/">http://magiccat.duapp.com</a></div>
+
+    <br>
+    <a href="/about" class = "list">aboout</a> &nbsp;| &nbsp;
+    <a href="/gallary">gallary</a> &nbsp;| &nbsp;
+    <a href="/img?img=img01">memo</a> &nbsp;| &nbsp;
+    <a href="/todo">工作进度</a>
+  
+  block content

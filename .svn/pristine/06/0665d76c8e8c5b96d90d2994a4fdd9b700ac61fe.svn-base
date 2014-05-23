@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  <!--h1= title-->
+  <div align=center><img id="title" src="/images/1.png">
+  <!--<h1>MagicCat</h1>-->
+  <div><a href="/">http://magiccat.duapp.com</a></div>
+  <br>
+  <a href="#" target="_self">aboout</a> &nbsp;| &nbsp;
+  <a href="#" target="_self">gallary</a> &nbsp;| &nbsp;
+  <a href="#" target="_self">memo</a> &nbsp;| &nbsp;
+  <a href="#" target="_self">offline</a>
+
+  p Self-instruction
+  <!--p Welcome to #{title}-->
+  p 这里是自我介绍部分,暂时就先放一张图吧
+ 
+  <div align=center><img id = "background" src="/images/Violet.jpg"></div>
+</div>
